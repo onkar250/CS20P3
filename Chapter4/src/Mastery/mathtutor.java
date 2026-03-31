@@ -7,8 +7,8 @@ public class mathtutor {
 	public static void main(String[] args) {
 		Random rand = new Random();
 		Scanner input = new Scanner(System.in);
-		  int num1 = rand.nextInt(10) + 1;
-	        int num2 = rand.nextInt(10) + 1;
+		  int num1 =(int)(10 * Math.random() + 1);
+	        int num2 = (int)(10 * Math.random() + 1);
 
 	        int op = rand.nextInt(4);
 
