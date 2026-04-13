@@ -1,49 +1,50 @@
 package Mastery;
 
+import java.util.Scanner;
+
 public class PrimeNumber {
 
-	public static void main(String[] args) {
-		import java.util.Scanner;
+    public static boolean isPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        if (number == 2) {
+            return true;
+        }
+        if (number % 2 == 0) {
+            return false;
+        }
 
-		public class PrimeNumbersApp {
+        for (int i = 3; i * i <= number; i += 2) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
 
-		    public static boolean isPrime(int number) {
-		        if (number <= 1) {
-		            return false;
-		        }
+        return true;
+    }
 
-		        for (int i = 2; i <= number / 2; i++) {
-		            if (number % i == 0) {
-		                return false;
-		            }
-		        }
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
 
-		        return true;
-		    }
+        System.out.print("Enter the first number: ");
+        int num1 = input.nextInt();
 
-		    public static void main(String[] args) {
-		        Scanner input = new Scanner(System.in);
+        System.out.print("Enter the second number: ");
+        int num2 = input.nextInt();
 
-		        System.out.print("Enter the first number: ");
-		        int num1 = input.nextInt();
+        int start = Math.min(num1, num2);
+        int end = Math.max(num1, num2);
 
-		        System.out.print("Enter the second number: ");
-		        int num2 = input.nextInt();
+        System.out.println("Prime numbers between " + start + " and " + end + ":");
 
-		        int start = Math.min(num1, num2);
-		        int end = Math.max(num1, num2);
+        for (int i = start; i <= end; i++) {
+            if (isPrime(i)) {
+                System.out.print(i + " ");
+            }
+        }
 
-		        System.out.println("Prime numbers between " + start + " and " + end + ":");
-
-		        for (int i = start; i <= end; i++) {
-		            if (isPrime(i)) {
-		                System.out.print(i + " ");
-		            }
-		        }
-
-		        input.close();
-		    }
-		}
-	}
-
+        System.out.println();
+        input.close();
+    }
 }
